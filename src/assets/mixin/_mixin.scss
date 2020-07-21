@@ -1,0 +1,172 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid-def {
+    display: grid;
+    grid-template-columns: minmax(860px, 1920px);
+    @media (max-width: 870px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+@mixin headline {
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #000;
+    margin-bottom: 50px;
+    @media (max-width: 520px) {
+        font-size: 30px;
+        width: 95%;
+        margin: 10px auto;
+        margin-top: 0;
+    }
+}
+
+@mixin container-card {
+    display: grid;
+    grid-template-columns: minmax(430px, 1fr) minmax(430px, 1fr);
+    @media (max-width: 1000px) {
+        grid-template-columns: minmax(430px, 1fr);
+    }
+    @media (max-width: 520px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+@mixin container-card_two {
+    width: 90%;
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
+    margin: 20px auto;
+    @media (max-width: 1070px) {
+        grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+    }
+    @media (max-width: 705px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+@mixin card-item {
+    box-shadow: 0 3px 6px 3px rgb(156, 154, 154);
+    border-radius: 15px;
+    width: 90%;
+    height: 180px;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    .headline {
+        padding: 0 10px;
+        @include flex();
+        img {
+            margin-right: 15px;
+        }
+        font-size: 23px;
+    }
+    .info {
+        margin: auto 15px;
+        p {
+            margin: 3px;
+            font-size: 18px;
+        }
+    }
+    @media (max-width: 800px) {
+        .headline {
+            font-size: 21px;
+        }
+    }
+    @media (max-width: 380px) {
+        height: 150px;
+        .headline {
+            font-size: 20px;
+        }
+        .info {
+            margin: auto 10px;
+            p {
+                margin: 3px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@mixin modal {
+    width: 20%;
+    height: 370px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    padding: 20px;
+    z-index: 10;
+    .clear {
+        img {
+            width: 28px;
+            height: 28px;
+        }
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+    h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        label {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            
+        }
+        input {
+            width: 80%;
+            margin: 5px auto;
+            height: 35px;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid #31D0F8;
+        }
+        .button {
+            width: 80%;
+            margin: 25px auto;
+            background-color: #31D0F8;
+        }
+    } 
+    @media (max-width: 1366px) {
+        width: 26%;
+        left: 37%;
+    }
+    @media (max-width: 870px) {
+        width: 60%;
+        left: 20%;
+    }
+    @media (max-width: 520px) {
+        width: 80%;
+        left: 5%;
+    }
+}
+
+@mixin filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: 0.5s;
+}
